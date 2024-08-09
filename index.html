@@ -1,47 +1,106 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Backward Compatible Software</title>
-    <link rel="stylesheet" href="https://classless.de/classless.css">
-    <style>
-      .bc-full { color: green; }
-    </style>
-  </head>
-  <body>
-    <hgroup>
-      <h1>Backward Compatible Software</h1>
-      <p>
-        List of [Open Source software](https://en.wikipedia.org/wiki/Open-source_software) projects that pledge to never ship notable breaking changes and eternally stay [backward compatibile](https://en.wikipedia.org/wiki/Backward_compatibility)
-      </p>
-    </hgroup>
-    <aside>
-      <a href="https://github.com/phil294/Backward-Compatible-Software">
-        <img decoding="async" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" loading="lazy" data-recalc-dims="1">
-      </a>
-    </aside>
-    <main>
-      <table>
-        <thead>
-          <tr>
-            <th>Project</th>
-            <th>Home page</th>
-            <th>Description</th>
-            <th>Backward compatibility status</th>
-            <th>Last breaking change</th>
-            <th>Pledge</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Go</td>
-            <td>https://go.dev/</td>
-            <td>Programming language by Google</td>
-            <td class="bc-full">Best effort</td>
-            <td></td>
-            <td><q cite="https://go.dev/blog/compat">Go 2 [...] is never going to happen.</q></td>
-          </tr>
-        </tbody>
-      </table>
-    </main>
-  </body>
+
+<head>
+	<title>Backward Compatible Software</title>
+	<link rel="stylesheet" href="https://classless.de/classless.css">
+	<style>
+		/* classless undos */
+		body {
+			max-width: unset;
+			margin: 0 2vw;
+			padding-top: 0;
+			position: static;
+		}
+		td, th {
+			text-align: unset;
+			white-space: unset;
+			word-break: break-word;
+		}
+		table { overflow: unset; }
+
+		/* custom */
+		.bc-full { color: green; }
+		.bc-half { color: rgb(201, 167, 0); }
+		.bc-none { color: red; }
+		aside { position: absolute; top: 0; right: 0; }
+		li { list-style: none; display: inline; }
+		li:not(:last-child):after { content: ", "; }
+	</style>
+</head>
+
+<body>
+	<aside>
+		<a href="https://github.com/phil294/Backward-Compatible-Software">
+			<img decoding="async" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png?resize=149%2C149" alt="Fork me on GitHub" loading="lazy">
+		</a>
+	</aside>
+	<main id="compatible">
+		<hgroup>
+			<h1><a href="#compatible"># 1 </a>Backward Compatible Software</h1>
+			<p>List of <a href="https://en.wikipedia.org/wiki/Open-source_software">Open Source software</a> projects that officially pledge to never ship notable breaking API changes and guarantee to eternally stay <a href="https://en.wikipedia.org/wiki/Backward_compatibility">backward compatible</a> (sometimes also called "upwards" compatible).</p>
+		</hgroup>
+		<table>
+			<thead>
+				<tr>
+					<th>Project</th>
+					<th>Home page</th>
+					<th>Description</th>
+					<th>Backward compatibility status</th>
+					<th>Pledge</th>
+					<th>Deprecation strategy</th>
+					<th>Since</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- helpful for linux libs: https://github.com/AppImageCommunity/pkg2appimage/blob/master/excludelist -->
+				<tr>
+					<td>Go</td>
+					<td><a href="https://go.dev">https://go.dev</a></td>
+					<td>Programming language by Google</td>
+					<td class="bc-full">Best effort</td>
+					<td><a href="https://go.dev/blog/compat"><q cite="https://go.dev/blog/compat">Go 2 [...] is never going to happen.</q></a></td>
+					<td><a href="https://go.dev/wiki/Deprecated">https://go.dev/wiki/Deprecated</a></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>SQLite</td>
+					<td><a href="https://sqlite.org">https://sqlite.org</a></td>
+					<td>Database engine</td>
+					<td class="bc-full">Compatible</td>
+					<td><a href="https://www.sqlite.org/formatchng.html"><q cite="https://www.sqlite.org/formatchng.html">[...] does not change in incompatible ways.</q></a></td>
+					<td></td>
+					<td>2004-06-18 (3.0.0)</td>
+				</tr>
+				<tr>
+					<td>Linux kernel</td>
+					<td><a href="https://kernel.org">https://kernel.org</a></td>
+					<td>OS kernel</td>
+					<td class="bc-full">Compatible</td>
+					<td><a href="https://lkml.org/lkml/2012/12/23/75"><q cite="https://lkml.org/lkml/2012/12/23/75">WE DO NOT BREAK USERSPACE!</q></a></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</main>
+	<section id="wonky">
+		<hgroup>
+			<h2><a href="#wonky"># 2 </a>Somewhat stable Software</h2>
+			<p>The following Open Source software projects are known for being very conservative with breaking changes but have made no promise so far.</p>
+		</hgroup>
+		<ul>
+			<li><a class="bc-half" href="https://oracle.com/java">Java</a><a href="https://stackoverflow.com/questions/16506411"><sup>[1]</sup></a><a href="https://www.oracle.com/java/technologies/javase/compatibility.html#source"><sup>[2]</sup></a></li>
+		</ul>
+	<section id="incompatible">
+		<hgroup>
+			<h2><a href="#incompatible"># 3 </a>Upcoming Incompatible Software</h2>
+			<p>The following is a list of notable software projects that may appear to have been backward compatible in recent times, but have explicitly stated at least the possibility of another breaking version:</p>
+		</hgroup>
+		<ul>
+			<li><a class="bc-half" href="">Python 3</a><a href="https://answerpython.com/why-python-4-may-never-arrive"><sup>[1]</sup></a></li>
+			<li><a href="https://deno.com" class="bc-none">Deno</a><a href="https://deno.com/blog/v1.33"><sup>[1]</sup></a></li>
+		</ul>
+	</section>
+</body>
+
 </html>
